@@ -2,27 +2,27 @@
 #include "stdlib.h"
 
 
-void role_joueur(int nb_joueurs, int taille_deck, Joueur joueur[nb_joueurs], char* role[taille_deck]) { //doit rajouter l'aleatoire et la case Voleur
+void role_joueur(int nb_joueurs, int taille_deck, Joueur joueur[nb_joueurs], char* role[taille_deck]) { 
     srand(time(NULL));    //permet d'avoir de l'aléatoire différent à chaque exécution.
     int i, j, poubelle;
     for (i=0; i<nb_joueurs; i++) {
         printf("Bonjour joueur %d, quel est ton pseudo (20 caractères max): ", i+1);
         scanf("%s", joueur[i].nom);
         j = rand () % taille_deck;        //on tire un role aleatoirement dans le deck
-        while (role[j] == "NULL") {             //si role[j] a déjà été donné a un joueur, on redonne une valeur aleatoire à j pour avoir un nouveau role[j]
+        while (role[j] == "NULL") {       //si role[j] a déjà été donné a un joueur, on redonne une valeur aleatoire à j pour avoir un nouveau role[j]
             j = rand () % taille_deck;
         }
         joueur[i].role = role[j];
         role[j] = "NULL";
         system ("clear");
-        printf("%s, ton rôle est : %s \nTape 1 pour effacer ton rôle de l'écran.", joueur[i].nom, joueur[i].role);   //car le printf joueur->role ne marche pas a la fin
+        printf("%s, ton rôle est : %s \nTape 1 pour effacer ton rôle de l'écran.", joueur[i].nom, joueur[i].role);   
         scanf("%d", &poubelle);
         system ("clear");
         joueur[i].amour = 0;
         joueur[i].mort = 0;
     }
-    for (i=0; i<nb_joueurs; i++) {
-        printf("%s\n", joueur[i].role);
+    for (i=0; i<nb_joueurs; i++) {             //enlever ce for() une fois le jeu terminé
+        printf("%s\n", joueur[i].role); 
     }
 }
 
@@ -42,7 +42,6 @@ void creation_deck(int nb_joueurs, Joueur joueur[nb_joueurs]) {
 
 void debutdepartie (int nb_joueurs) {
     int i;
-    Joueur joueur[nb_joueurs];   
-                                
+    Joueur joueur[nb_joueurs];                                
     creation_deck(nb_joueurs, joueur);
 }

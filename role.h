@@ -3,6 +3,7 @@ struct Joueur {
     char nom[20];
     char* role;
     int date_de_mort;
+    int mort;
     int amour;
 };
 

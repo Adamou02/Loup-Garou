@@ -22,8 +22,12 @@ void role_joueur(int nb_joueurs, int taille_deck, Joueur joueur[nb_joueurs], cha
         joueur[i].mort = 0;
     }
     for (i=0; i<nb_joueurs; i++) {             //enlever ce for() une fois le jeu terminé
-        printf("%s\n", joueur[i].role); 
-    }
+        printf("%s; ", joueur[i].role);        //enlever ce for() une fois le jeu terminé
+    }                                          //enlever ce for() une fois le jeu terminé
+    printf ("\n\nIl reste dans le deck\n\n");  //enlever ce for() une fois le jeu terminé
+    for (i=0; i<taille_deck; i++) {            //enlever ce for() une fois le jeu terminé
+        printf ("%s; ", role[i]);              //enlever ce for() une fois le jeu terminé
+    }                                          //enlever ce for() une fois le jeu terminé
 }
 
 

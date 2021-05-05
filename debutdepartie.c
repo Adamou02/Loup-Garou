@@ -1,6 +1,5 @@
 #include "stdio.h"
 #include "stdlib.h"
-#include "time.h"
 
 
 void role_joueur(int nb_joueurs, int taille_deck, Joueur joueur[nb_joueurs], char* role[taille_deck]) { //doit rajouter l'aleatoire et la case Voleur

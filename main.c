@@ -2,11 +2,12 @@
 #define MAX 12
 #include "stdio.h"
 #include "stdlib.h"
+#include "time.h"
 #include "role.h"
 #include "debutdepartie.c"
-#include "role.c"
-#include "journée.c"
-#include "time.h"
+//#include "role.c"
+//#include "journée.c"
+
 
 
 void main (int argc, char* argv[]) {

@@ -5,8 +5,9 @@
 #include "time.h"
 #include "role.h"
 #include "debutdepartie.c"
-//#include "role.c"
-//#include "journée.c"
+#include "role.c"
+#include "role_en_vie.c"
+#include "jour.c"
 
 
 

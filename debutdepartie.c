@@ -48,4 +48,6 @@ void debutdepartie (int nb_joueurs) {
     int i;
     Joueur joueur[nb_joueurs];                                
     creation_deck(nb_joueurs, joueur);
+//    role_en_vie(nb_joueurs, joueur); un tableau qui permet de savoir quelles sont les roles encore en vie dans le jeu 
+//    chasseur(nb_joueurs, joueur); cette ligne est un test
 }

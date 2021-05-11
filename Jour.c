@@ -71,11 +71,15 @@ for (i=0;i<nombreJoueur;i++) //boucle qui définit qui vote
         
         for (j=0;j<nombreJoueur;j++) //affiche les votes possible
         {
-            printf("%d = %s\n",j,joueur[j].nom);
+            if(joueur[j].etat == true)
+            {
+                printf("%d = %s\n",j,joueur[j].nom);
+            }
         }   
         do 
             scanf("\nSelectionner le joueur que vous voulez éliminer: %d",x); //selection du joueur parmis la liste
-        while(joueur[x].etat == true); //s'assure que le joueur voté existe
+        while(x > 0 && x < nombreJoueur && joueur[x].etat == true); //s'assure que le joueur voté existe
+        system ("clear");
 
         joueur[x].vote ++;
     }
@@ -102,11 +106,15 @@ void chasseur(int* flag) // fonction "chasseur" elle permet si le chasseur est m
 
     for(i=0,i<nombreJoueur;i++)
         {
-            printf("%d = %s\n",j,joueur[j].nom);
+            if(joueur[j].etat == true)
+            {
+                printf("%d = %s\n",j,joueur[j].nom);
+            }
         }
     do 
-        scanf("\n%s Selectionner le joueur que vous voulez éliminer: %d",chasseur.nom,x); //selection du joueur parmis la liste
-    while(joueur[x].etat == true);
+        scanf("\n%s selectionner le joueur que vous voulez éliminer: %d",chasseur.nom,x); //selection du joueur parmis la liste
+    while(x > 0 && x < nombreJoueur && joueur[x].etat == true);
+    system ("clear");
 
     printf("\n\nLe chasseur a tuer %s qui était un %s",joueur[x].nom,joueur[x].role);
     kill(player[x]); /*il existe donc on l'élimine et on change de competur à 1 pour sortir de la boucle et ne plus
@@ -166,6 +174,7 @@ void capitaineMort()
         do 
             scanf("\n%s Selectionner le joueur que vous voulez voir Capitaine: %d\n",capitaine.nom,x); //selection du joueur parmis la liste
         while(joueur[x].etat == true);
+        system ("clear");
 
         printf("le joueur élu est le joueur %s !\n Long vie au Capitaine %s !\n",joueur[x].nom,joueur[x].nom);
         joueur[x].capitaine = true;

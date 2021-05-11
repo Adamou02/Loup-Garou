@@ -214,7 +214,7 @@ void main()
         capitaineVote(&flagCapitaine);   //Election du capitaine durant la premiere journée
     }
 
-    if (chasseur.present == true && flagChasseur == 0)
+    if (chasseur.present == true && flagChasseur == 0 && chasseur.etat == false)
     {
         chasseur(&flagChasseur);  //Si le chasseur est tuée alors il active le pouvoir de sa carte
     }

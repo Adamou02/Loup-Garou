@@ -14,10 +14,14 @@ void main()
         if(joueur[i].role == chasseur)
         {
             chasseur.present = true;
+        } else {
+            chasseur.present = false;
         }
         if(joueur[i].role == cupidon)
         {
             cupidon.present = true;
+        } else {
+            cupidon.present = false;
         }
     }
 }

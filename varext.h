@@ -5,23 +5,33 @@
 
 int flagChasseur = 0,flagCupidon = 0,flagCapitaine = 0;
 
-int i;
-
-void main()
+int chercherRole(char* role)
 {
+    int i;
+
     for(i=0,i<nombreJoueur,i++)
     {
-        if(joueur[i].role == chasseur)
+        if(joueur[i].role == role)
         {
-            chasseur.present = true;
-        } else {
-            chasseur.present = false;
-        }
-        if(joueur[i].role == cupidon)
-        {
-            cupidon.present = true;
-        } else {
-            cupidon.present = false;
+            return i;
         }
     }
 }
+
+int chercherCapitaine()
+{
+    int i;
+
+    for(i=0,i<nombreJoueur,i++)
+    {
+        if(joueur[i].Capitaine == true)
+        {
+            return i;
+        }
+    }
+}
+
+int capt = -1;
+int cha = -1;
+int cup = -1;
+int nb_mort = 0;

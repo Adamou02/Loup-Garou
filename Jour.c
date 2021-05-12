@@ -24,31 +24,7 @@
 
 //-------------------------------------------------------------FONCTIONS-------------------------------------------------------------//
 
-/*
-
-FONCTION POUR L'INITIALISATION (Adam)
-
-int present(askRole)
-{
-    for(i=0,i<nombreJoueur,i++)
-    {
-        if (player[i].role == askRole)
-        askRole.presence = true;
-    }
-}
-*/
-/*
-player.name search(player.role)
-{
-    int i;
-    
-    for(i=0,i<nombreJoueur,i++)
-    {
-        if(player[i].role == player.role) 
-        return player[i].name
-    }
-}
-*/
+int nb_mort = 0;
 
 void clrVote ()
 {
@@ -98,11 +74,11 @@ for (i=0;i<nombreJoueur;i++) //boucle qui définit qui vote
 
 //-----------------------------------------------------Fonction-principale-----------------------------------------------------//
 
-void chasseur(int* flag) // fonction "chasseur" elle permet si le chasseur est mort de tirer sur un joueur choisit par le defunt chasseur.
+void chasseurFct(int* flag) // fonction "chasseur" elle permet si le chasseur est mort de tirer sur un joueur choisit par le defunt chasseur.
 {
    int i,x;
 
-    printf("\njoueur %s est mort ..\n Il etait le chasseur, dans un dernier élant de lucidité il tire\n",chasseur.nom);
+    printf("\ndans la nuit, le joueur %s est mort ..\n Il etait le chasseur, dans un dernier élant de lucidité il tire\n",joueur[cha].nom);
 
     for(i=0,i<nombreJoueur;i++)
         {
@@ -112,13 +88,14 @@ void chasseur(int* flag) // fonction "chasseur" elle permet si le chasseur est m
             }
         }
     do 
-        scanf("\n%s selectionner le joueur que vous voulez éliminer: %d",chasseur.nom,x); //selection du joueur parmis la liste
+        scanf("\n%s selectionner le joueur que vous voulez éliminer: %d",joueur[cha].nom,x); //selection du joueur parmis la liste
     while(x > 0 && x < nombreJoueur && joueur[x].etat == true);
     system ("clear");
 
     printf("\n\nLe chasseur a tuer %s qui était un %s",joueur[x].nom,joueur[x].role);
     kill(player[x]); /*il existe donc on l'élimine et on change de competur à 1 pour sortir de la boucle et ne plus
     jamais répéter l'action.*/
+    nb_mort++;
     *flag = 1;
 }
 
@@ -128,7 +105,7 @@ void amoureux(int* flag) //fonction amoureux sert a vérifier si un des amoureux
 
     for(i=0,i<nombreJoueur,i++)
     {
-        if(joueur[i].dateMort == 1 && joueur[i].amoureux == true) /*
+        if(joueur[i].amoureux == true && joueur[i].etat == false) /*
         ces conditions permet de 1) vérifier si le joueur est mort récemment et 2) vérifier si il était amoureux */
         {
             for(j=0,j<nombreJoueur,j++)
@@ -138,6 +115,7 @@ void amoureux(int* flag) //fonction amoureux sert a vérifier si un des amoureux
                     printf("\n%s est mort il était %s.\n",joueur[i].nom,joueur[i].role);
                     printf("De plus il était amoureux de %s qui était %s\n",joueur[tempLove].nom,joueur[tempLove].role);
                     kill(joueur[j]);
+                    nb_mort = nb_mort + 2;
                     *flag = 1;
                 }
             }
@@ -163,22 +141,24 @@ void capitaineMort()
 {
     int i,x;
 
-    if(capitaine.etat = false)
+    capt = chercherCapitaine();
+
+    if(joueur[capt].etat = false)
     {
-        printf("Le Capitaine est Malheureusement mort il était %s\nDans son derniere souffle il chuchote le nom de son héritier\n:",capitaine.nom);
+        nb_mort++;
+        printf("Le Capitaine est Malheureusement mort il était %s\nDans son derniere souffle il chuchote le nom de son héritier\n:",joueur[capt].nom);
 
         for(i=0,i<nombreJoueur;i++)
         {
-            printf("%d = %s\n",j,joueur[j].nom);
+            printf("%d = %s\n",i,joueur[i].nom);
         }
         do 
-            scanf("\n%s Selectionner le joueur que vous voulez voir Capitaine: %d\n",capitaine.nom,x); //selection du joueur parmis la liste
+            scanf("\n%s selectionnez le joueur que vous voulez voir Capitaine: %d\n",joueur[capt].nom,x); //selection du joueur parmis la liste
         while(joueur[x].etat == true);
         system ("clear");
 
-        printf("le joueur élu est le joueur %s !\n Long vie au Capitaine %s !\n",joueur[x].nom,joueur[x].nom);
+        printf("Le joueur élu est le joueur %s !\n Long vie au Capitaine %s !\n",joueur[x].nom,joueur[x].nom);
         joueur[x].capitaine = true;
-        *flag = 1;
     }
 }
 
@@ -191,6 +171,7 @@ void votePopulaire()
 
     printf("\nLe village à décidé d'éliminer %s qui était un %s",joueur[pendu].nom,joueur[pendu].role);
     kill(joueur[pendu]);
+    nb_mort++;
 
     if(joueur[pendu].role == loupGarou)
     {
@@ -200,33 +181,69 @@ void votePopulaire()
     }
 }
 
-void compteRendu() //fonction qui annonce les mort de la nuit derniere
+int compteRendu(nb_mort) //fonction qui annonce les mort de la nuit derniere
 {
-    
+    int i;
+
+    for(i=0,i<nombreJoueur,i++)
+    {
+        if(date - joueur[i].dateMort == 0 && joueur[i].etat == false)
+        {
+            if(joueur[i].amoureux != false || joueur[i].role != chasseur || joueur.capitaine != true)
+            {
+                if(nb_mort == 0)
+                {
+                    printf("\nDans la nuit, le joueur %s est mort. Il était %s.\n",joueur[i].nom,joueur[i].role);
+                    nb_mort++;
+                } else if(nb_mort == 1) {
+                    printf("\nDe plus le joueur %s est mort. Il était %s.\n",joueur[i].nom,joueur[i].role);
+                    nb_mort++;
+                }
+            }
+        }
+    }
 }
 
 //----------------------------------------------------------------MAIN----------------------------------------------------------------//
 
 void main()
 {
+    cha = chercherRole(chasseur);
+    cup = chercherRole(cupidon);
+    nb_mort = 0;
+
     if(flagCapitaine == 0)
     {
         capitaineVote(&flagCapitaine);   //Election du capitaine durant la premiere journée
     }
 
-    if (chasseur.present == true && flagChasseur == 0 && chasseur.etat == false)
+    if (joueur[cha].present == true && flagChasseur == 0 && joueur[cha].etat == false)
     {
         chasseur(&flagChasseur);  //Si le chasseur est tuée alors il active le pouvoir de sa carte
     }
 
-    if (cupidon.present == true && flagCupidon == 0)
+    if (joueur[cup].present == true && flagCupidon == 0)
     {
        amoureux(&flagCupidon);   //Si un des amoureux est mort alors l'autre meurt aussi
     }
 
+    compteRendu();
+
     capitaineMort();       //Si le capitaine est mort alors il choisit son héritier
 
     votePopulaire();       //Le village choisit une personne à éliminer
+
+    if (joueur[cha].present == true && flagChasseur == 0 && joueur[cha].etat == false)
+    {
+        chasseur(&flagChasseur);  //Si le chasseur est tuée alors il active le pouvoir de sa carte
+    }
+
+    if (joueur[cup].present == true && flagCupidon == 0)
+    {
+       amoureux(&flagCupidon);   //Si un des amoureux est mort alors l'autre meurt aussi
+    }
+
+    capitaineMort(); 
 
     printf("\nLe village se rendort\n");  //annonce de fin de la journée
 
@@ -240,6 +257,7 @@ void main()
         -si capitaine mort alors désigne son succeseur
     -débat
     -vote (si égalité alors le capitaine départage (il est un vote compte double))
+    (si chasseur, amoureux ou capitaine mort réefectuer leur fonctions)
     -annonce de la carte de la personne voté
     -le village se rendort
 */

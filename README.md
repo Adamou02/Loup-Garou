@@ -13,10 +13,16 @@ Liens GitHub du projet : https://github.com/adamou02/Loup-Garou
 
 
 ---------------------------------------------
-Pour lancer Les Loups-Garous de Thiercelieux
+## Pour lancer Les Loups-Garous de Thiercelieux
 ---------------------------------------------
 
-Il vous suffit d'accéder à votre terminale Linux avec la commande
+### Executable
+
+Il suffit de doubler cliquer sur le LoupGarou.exe
+
+### Compilation
+
+Accéder à votre terminale Linux avec la commande
 ctrl+alt+t.
 Une fois dans le terminale diriger vous avec la commande "cd" pour
 atteindre le dossier "LoupGarou" vous devriez avoir dans le dossier:
@@ -41,7 +47,7 @@ Puis pour lancer le programme :
 	  ./LoupGarou  
 
 ------------------------------------------
-Regles du jeu et déroulement d'une partie
+## Regles du jeu et déroulement d'une partie
 ------------------------------------------
 
 ### INITIALISATION
@@ -164,7 +170,7 @@ Les Loups-Garous gagnent, dès que l'avant dernier villageois est éliminé..
 
 
 ---------------------------
-Groupe du Projet et contact
+## Groupe du Projet et contact
 ----------------------------
 
 Amaury PROVENT amauryprovent@gmail.com

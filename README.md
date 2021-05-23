@@ -1,34 +1,11 @@
-	### Les LoupsGarous de Thiercelieux ###
-
-	
-############################################################# 
-###################################################   ####### 
-###############################################   /~\   #####
-############################################   _- `~~~', ####
-##########################################  _-~       )  ####
-#######################################  _-~          |  ####
-####################################  _-~            ;  #####
-##########################  __---___-~              |   #####
-#######################   _~   ,,                  ;  `,,  ##
-#####################  _-~    ;'                  |  ,'  ; ##
-###################  _~      '                    `~'   ; ###
-############   __---;                                 ,' ####
-########   __~~  ___                                ,' ######
-#####  _-~~   -~~ _                               ,' ########
-##### `-_         _                              ; ##########
-#######  ~~----~~~   ;                          ; ###########
-#########  /          ;                        ; ############
-#######  /             ;                      ; #############
-#####  /                `                    ; ##############
-###  /                                      ; ###############
-#                                            ################
+# Les LoupsGarous de Thiercelieux 
 
 
 Ce programme permet de jouer à plusieur sur un même écran au célèbre jeu Loup Garou édité par Asmodee.
 vous pouvez jouer de 8 à 12 joueurs.
 
 -----------------------
-Information importante
+## Information importante
 -----------------------
 
 Le programme fonctionne uniquement sur Linux. 
@@ -44,24 +21,24 @@ ctrl+alt+t.
 Une fois dans le terminale diriger vous avec la commande "cd" pour
 atteindre le dossier "LoupGarou" vous devriez avoir dans le dossier:
 
-• main.c
-• debutdepartie.h
-• role.h
-• blabla.h
-• jour.h
-• nuit.h
-• README.txt
+- main.c
+- debutdepartie.h
+- role.h
+- blabla.h
+- jour.h
+- nuit.h
+- README.txt
 
 Si il manque un des fichier veuillez réinstaller le fichier manquant à l'aide du liens :
 https://github.com/adamou02/Loup-Garou
 
 Si tout les fichier sont présent faire la commande : 
 
-[  gcc main.c -o LoupGarou  ]
+	  gcc main.c -o LoupGarou  
 
 Puis pour lancer le programme :
 
-[  ./LoupGarou  ]
+	  ./LoupGarou  
 
 ------------------------------------------
 Regles du jeu et déroulement d'une partie
@@ -78,8 +55,8 @@ dévoiler votre identité au joueur suivant. Appelez le joueur concerné quand i
 
 But du jeu
 
-• Pour les Villageois : éliminer les Loups-garous.
-• Pour les Loups-garous : éliminer les Villageois.
+- Pour les Villageois : éliminer les Loups-garous.
+- Pour les Loups-garous : éliminer les Villageois.
 
 
 
@@ -190,5 +167,7 @@ Groupe du Projet et contact
 ----------------------------
 
 Amaury PROVENT amauryprovent@gmail.com
+
 Adam BOUHRARA borasse02@gmail.com
+
 Jeanne TAVERNIER jeanne.tavernier0@gmail.com

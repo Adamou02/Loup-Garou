@@ -44,7 +44,7 @@ Puis pour lancer le programme :
 Regles du jeu et déroulement d'une partie
 ------------------------------------------
 
-INITIALISATION
+### INITIALISATION
 
 Le programme va, vous demandez le nombre de joueurs participant entre 8 et 12.
 Puis après avoir rentré votre nom votre rôle sera donner.
@@ -53,24 +53,24 @@ dévoiler votre identité au joueur suivant. Appelez le joueur concerné quand i
 
 
 
-But du jeu
+### But du jeu
 
 - Pour les Villageois : éliminer les Loups-garous.
 - Pour les Loups-garous : éliminer les Villageois.
 
 
 
-Les cartes :
+### Les cartes :
 
 
-Les LOUPS-GAROUS
+**Les LOUPS-GAROUS**
 Chaque nuit, ils égorgent un Villageois.
 Le jour ils se font passer pour des Villageois
 afin de ne pas être démasqués.
 
 
 
-Les VILLAGEOIS
+**Les VILLAGEOIS**
 Chaque nuit, l’un d’entre eux est égorgé par le ou les Loups-Garous.
 Ce joueur est éliminé du jeu, et ne peut plus participer aux débats. Les Villageois survivants doivent chaque jour lyncher un des joueur, dans l’espoir qu’il soit Loup-Garou. Comme dans le jeu traditionnelle un villageois peut importe son rôle peut entrendre des bruit. Il aura alors le nom de 3 joueurs suspect mais seulement 1 des 3 est loup garou.
 
@@ -110,7 +110,7 @@ Cette carte est confiée à un des joueurs, en plus de sa carte personnage. Le C
 
 
 
-• TOURS DE JEU •
+### • TOURS DE JEU •
 
 
 1 - C'EST LA NUIT, l'ordinateur demande à tous les joueurs de s'assoir, le village s'endort.
@@ -156,9 +156,10 @@ Le jeu reprend au tour N° 5
 
 
 
-CONDITIONS DE VICTOIRE
+### CONDITIONS DE VICTOIRE
 
 Les Villageois gagnent, dès le dernier Loup-Garou est éliminé.
+
 Les Loups-Garous gagnent, dès que l'avant dernier villageois est éliminé..
 
 

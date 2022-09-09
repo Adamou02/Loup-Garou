@@ -175,6 +175,6 @@ Les Loups-Garous gagnent, dès que l'avant dernier villageois est éliminé..
 
 Amaury PROVENT amauryprovent@gmail.com
 
-Adam BOUHRARA borasse02@gmail.com
+Adam BOUHRARA bouhrara.adam@gmail.com
 
 Jeanne TAVERNIER jeanne.tavernier0@gmail.com
